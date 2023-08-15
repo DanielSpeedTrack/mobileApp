@@ -52,7 +52,6 @@ Si vous rencontrez des problèmes techniques, avez des questions ou des suggesti
 
 Téléchargez notre application Daniel Speed Track dès aujourd'hui et commencez à surveiller vos emplacements importants tout en gardant un œil sur les vitesses de déplacement !
 
-
 ## Suivi en Temps Réel
 
 ![Suivi en Temps Réel](https://github.com/DanielSpeedTrack/mobileApp/raw/main/1.jpg)
@@ -72,5 +71,7 @@ Téléchargez notre application Daniel Speed Track dès aujourd'hui et commencez
 ## Zones Géofencing de Vitesse
 
 ![Zones Géofencing de Vitesse](https://github.com/DanielSpeedTrack/mobileApp/raw/main/5.jpg)
+
+
 
 
