@@ -52,26 +52,13 @@ Si vous rencontrez des problèmes techniques, avez des questions ou des suggesti
 
 Téléchargez notre application Daniel Speed Track dès aujourd'hui et commencez à surveiller vos emplacements importants tout en gardant un œil sur les vitesses de déplacement !
 
-## Suivi en Temps Réel
+<img src="https://github.com/DanielSpeedTrack/mobileApp/blob/master/pic/1.jpg" alt="Partage Facile" width="200">
+<img src="https://github.com/DanielSpeedTrack/mobileApp/blob/master/pic/2.jpg" alt="Partage Facile" width="200">
+<img src="https://github.com/DanielSpeedTrack/mobileApp/blob/master/pic/3.jpg" alt="Partage Facile" width="200">
+<img src="https://github.com/DanielSpeedTrack/mobileApp/blob/master/pic/4.jpg" alt="Partage Facile" width="200">
+<img src="https://github.com/DanielSpeedTrack/mobileApp/blob/master/pic/5.jpg" alt="Partage Facile" width="200">
 
-![Suivi en Temps Réel](https://github.com/DanielSpeedTrack/mobileApp/blob/master/pic/3.jpg)
 
-## Notifications Personnalisées
-
-![Notifications Personnalisées](https://github.com/DanielSpeedTrack/mobileApp/pic/2.jpg)
-<img src="https://github.com/DanielSpeedTrack/mobileApp/blob/master/pic/1.jpg" alt="Partage Facile" width="400">
-
-## Historique de Localisation
-
-![Historique de Localisation](https://github.com/DanielSpeedTrack/mobileApp/pic/3.jpg)
-
-## Partage Facile
-
-![Partage Facile](https://github.com/DanielSpeedTrack/mobileApp/pic/4.jpg)
-
-## Zones Géofencing de Vitesse
-
-![Zones Géofencing de Vitesse](https://github.com/DanielSpeedTrack/mobileApp/pic/5.jpg)
 
 
 
