@@ -51,3 +51,24 @@ Nous prenons la sécurité de vos données très au sérieux. Les informations d
 Si vous rencontrez des problèmes techniques, avez des questions ou des suggestions, n'hésitez pas à contacter notre équipe d'assistance à l'adresse support@danielspeedtrack.com.
 
 Téléchargez notre application Daniel Speed Track dès aujourd'hui et commencez à surveiller vos emplacements importants tout en gardant un œil sur les vitesses de déplacement !
+
+
+## Suivi en Temps Réel
+
+![Suivi en Temps Réel](1.jpg)
+
+## Notifications Personnalisées
+
+![Notifications Personnalisées](2.jpg)
+
+## Historique de Localisation
+
+![Historique de Localisation](3.jpg)
+
+## Partage Facile
+
+![Partage Facile](4.jpg)
+
+## Zones Géofencing de Vitesse
+
+![Zones Géofencing de Vitesse](5.jpg)
