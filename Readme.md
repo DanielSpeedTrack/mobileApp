@@ -54,7 +54,7 @@ Téléchargez notre application Daniel Speed Track dès aujourd'hui et commencez
 
 ## Suivi en Temps Réel
 
-![Suivi en Temps Réel](https://github.com/DanielSpeedTrack/mobileApp/pic/1.jpg)
+![Suivi en Temps Réel](https://github.com/DanielSpeedTrack/mobileApp/blob/master/pic/3.jpg)
 
 ## Notifications Personnalisées
 
