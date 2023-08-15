@@ -59,6 +59,7 @@ Téléchargez notre application Daniel Speed Track dès aujourd'hui et commencez
 ## Notifications Personnalisées
 
 ![Notifications Personnalisées](https://github.com/DanielSpeedTrack/mobileApp/pic/2.jpg)
+<img src="https://github.com/DanielSpeedTrack/mobileApp/blob/master/pic/1.jpg" alt="Partage Facile" width="400">
 
 ## Historique de Localisation
 
