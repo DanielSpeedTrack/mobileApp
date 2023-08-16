@@ -5,31 +5,41 @@ import { ActivityIndicator, Box, Flex, TextInput } from '@react-native-material/
 import { Ionicons } from '@expo/vector-icons'
 import images from '../../assets/constants/images'
 
+import { useRegisterUserMutation } from '../../src/services/userAuthApi'
+import { Toast } from 'react-native-toast-message/lib/src/Toast'
+
 const Register = ({ navigation }) => {
 
     const [isLoading, setIsLoading] = useState(false)
-
-    const handlePress = () => {
-        // Simulate an asynchronous action (e.g., API request)
-
+    const [registerUser] = useRegisterUserMutation()
+    const [postData, setPostData] = useState({
+        email: '',
+        name: '',
+        password: '',
+        password2: '',
+        tc: true
+    })
+    const handlePress = async () => {
         setIsLoading(true);
-        // fetch('http://172.20.10.5:8000/api/login/', {
-        //     method: 'POST',
-        //     body: data
-        // }).then((res) => {
-        //     console.log(res)
-        //     // setIsLoading(false);
-        //     if (res.status == 200) {
+        // console.log(postData);
+        const res = await registerUser(postData)
+        if (res.data) {
 
-        //         console.log(res)
-        //         ToastAndroid.show('Hello, this is a toast!', ToastAndroid.SHORT);
-        //     }
-        // })
-
-        // ToastAndroid.show('Hello, this is a toast!', ToastAndroid.SHORT);
+        }
+        if (res.error) {
+            Toast.show(
+                {
+                    type: 'warning',
+                    position: 'bottom',
+                    topOffset: 0,
+                    text1: "Warning",
+                    text2: "Verifiez tous les champs"
+                }
+            )
+        }
         setTimeout(() => {
             setIsLoading(false);
-        }, 2000);
+        }, 1000);
     };
     return (
         <ScrollView contentContainerStyle={styles.scrollContentContainer} style={{ backgroundColor: COLORS.white }}>
@@ -42,8 +52,9 @@ const Register = ({ navigation }) => {
 
             <Flex fill justify='center' direction='row'>
                 <View style={styles.form}>
-
                     <TextInput
+                        onChangeText={(target) => setPostData({ ...postData, email: target })}
+
                         style={styles.input}
                         inputMode='email'
                         placeholder='Email'
@@ -51,8 +62,18 @@ const Register = ({ navigation }) => {
                         color={COLORS.gray}
                         leading={<Ionicons name='mail' size={20} color={COLORS.gray} />}
                     />
+                    <TextInput
+                        onChangeText={(target) => setPostData({ ...postData, name: target })}
+                        style={styles.input}
+                        inputMode='email'
+                        placeholder='Name'
+                        variant='outlined'
+                        color={COLORS.gray}
+                        leading={<Ionicons name='person' size={20} color={COLORS.gray} />}
+                    />
 
                     <TextInput
+                        onChangeText={(target) => setPostData({ ...postData, password: target })}
                         style={styles.input}
                         inputMode='text'
                         variant='outlined'
@@ -61,6 +82,7 @@ const Register = ({ navigation }) => {
                         leading={<Ionicons name='lock-closed' size={20} color={COLORS.gray} />}
                     />
                     <TextInput
+                        onChangeText={(target) => setPostData({ ...postData, password2: target })}
                         style={styles.input}
                         inputMode='text'
                         variant='outlined'

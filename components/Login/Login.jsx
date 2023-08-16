@@ -1,13 +1,28 @@
-import { View, StyleSheet, ScrollView, Text, Image, ActivityIndicator, Pressable, ToastAndroid } from 'react-native'
-import { Box, Flex, TextInput, Stack, Avatar, FAB, } from '@react-native-material/core'
+import { View, StyleSheet, ScrollView, Text, Image, ActivityIndicator, Pressable, } from 'react-native'
+import { Box, Flex, TextInput, } from '@react-native-material/core'
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from 'react'
 import { COLORS } from '../../assets/constants/theme'
 import images from '../../assets/constants/images'
-import { BaseToast } from "react-native-toast-message";
 import { StackActions } from '@react-navigation/native';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { useLoginUserMutation } from '../../src/services/userAuthApi';
+
 
 import axios from 'axios';
+import { storeToken } from '../../src/services/AsyncStorageServices';
+
+const getToken = async () => {
+    try {
+        const token = await AsyncStorage.getItem('token');
+        return token;
+    } catch (error) {
+        console.error('Error retrieving token:', error);
+        return null;
+    }
+};
 
 const Login = ({ navigation }) => {
 
@@ -15,34 +30,33 @@ const Login = ({ navigation }) => {
         email: '',
         password: ''
     })
+    const [loginUser] = useLoginUserMutation()
+
+
 
     const [isLoading, setIsLoading] = useState(false);
-    const handlePress = () => {
-        // Simulate an asynchronous action (e.g., API request)
-
+    const [isLogin, setIsLogin] = useState(false);
+    const user = useSelector((state) => state.auth)
+    const handlePress = async () => {
         setIsLoading(true);
-        // fetch('http://172.20.10.5:8000/api/login/', {
-        //     method: 'POST',
-        //     body: data
-        // }).then((res) => {
-        //     console.log(res)
-        //     // setIsLoading(false);
-        //     if (res.status == 200) {
+        const res = await loginUser(data)
 
-        //         console.log(res)
-        //         ToastAndroid.show('Hello, this is a toast!', ToastAndroid.SHORT);
-        //     }
-        // })
+        if (res.data) {
+            console.log(res.data);
+            await storeToken(res.data.token)
 
-        // ToastAndroid.show('Hello, this is a toast!', ToastAndroid.SHORT);
+            navigation.dispatch(StackActions.popToTop());
+            navigation.dispatch(
+                StackActions.replace('Main')
+            );
+        }
         setTimeout(() => {
             setIsLoading(false);
-        }, 2000);
-        navigation.dispatch(StackActions.popToTop());
-        navigation.dispatch(
-            StackActions.replace('Main')
-        );
+        }, 500);
+
     };
+
+
     const [passwordHide, setPasswordHide] = useState(true)
     return (
 
@@ -133,6 +147,8 @@ const Login = ({ navigation }) => {
                     <Ionicons name='logo-google' size={30} />
                 </View>
             </Flex> */}
+
+
         </ScrollView >
     )
 }
