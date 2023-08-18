@@ -3,15 +3,16 @@ const COLORS = {
   primary: "#1159AE",
   secondary: "#444262",
   tertiary: "#FF7754",
-
-
   gray: "#83829A",
   gray2: "#C1C0C8",
+  orangeDegrade: '#ff880079',
+  rougeDegrade: '#f3365c63',
 
   white: "#FFF",
   lightWhite: "#FAFAFC",
   lightBlue: "#A2B3EF",
-  lightOpacity: "#f2f4f734"
+  lightOpacity: "#f2f4f734",
+  lightOpacity2: "#e0e4ebe9"
 };
 
 const FONT = {

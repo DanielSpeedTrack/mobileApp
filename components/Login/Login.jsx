@@ -10,9 +10,8 @@ import { StackActions } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLoginUserMutation } from '../../src/services/userAuthApi';
 
-
-import axios from 'axios';
 import { storeToken } from '../../src/services/AsyncStorageServices';
+import { setAuthAsTrue } from '../../src/services/AuthSateSlice';
 
 const getToken = async () => {
     try {
@@ -32,7 +31,7 @@ const Login = ({ navigation }) => {
     })
     const [loginUser] = useLoginUserMutation()
 
-
+    const dispatch = useDispatch()
 
     const [isLoading, setIsLoading] = useState(false);
     const [isLogin, setIsLogin] = useState(false);
@@ -44,11 +43,9 @@ const Login = ({ navigation }) => {
         if (res.data) {
             console.log(res.data);
             await storeToken(res.data.token)
+            dispatch(setAuthAsTrue())
 
-            navigation.dispatch(StackActions.popToTop());
-            navigation.dispatch(
-                StackActions.replace('Main')
-            );
+
         }
         setTimeout(() => {
             setIsLoading(false);

@@ -36,7 +36,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // Define a service using a base URL and expected endpoints
 export const userAuthApi = createApi({
     reducerPath: 'userAuthApi',
-    baseQuery: fetchBaseQuery({ baseUrl: `${DJANGO_BASE_API_URL}` }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://192.168.100.9:8000/api/' }),
     endpoints: (builder) => ({
         registerUser: builder.mutation({
             query: (user) => {

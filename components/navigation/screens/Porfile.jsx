@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-
+import useNavigation from "@react-navigation/native";
 const Profile = () => {
     const [markerPosition, setMarkerPosition] = useState({
         latitude: 37.78825, // Latitude initiale

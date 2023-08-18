@@ -15,6 +15,9 @@ const getToken = async () => {
         if (token !== null) {
             return token
         }
+        else {
+            return null
+        }
     } catch (error) {
         console.log(error)
     }

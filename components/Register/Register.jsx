@@ -1,15 +1,16 @@
-import { View, Text, ScrollView, StyleSheet, Pressable, Image } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS } from '../../assets/constants/theme'
 import { ActivityIndicator, Box, Flex, TextInput } from '@react-native-material/core'
 import { Ionicons } from '@expo/vector-icons'
-import images from '../../assets/constants/images'
+import { useDispatch } from 'react-redux'
 
 import { useRegisterUserMutation } from '../../src/services/userAuthApi'
-import { Toast } from 'react-native-toast-message/lib/src/Toast'
+import { storeToken } from '../../src/services/AsyncStorageServices'
+import { setAuthAsTrue } from '../../src/services/AuthSateSlice'
 
 const Register = ({ navigation }) => {
-
+    const dispatch = useDispatch()
     const [isLoading, setIsLoading] = useState(false)
     const [registerUser] = useRegisterUserMutation()
     const [postData, setPostData] = useState({
@@ -21,21 +22,13 @@ const Register = ({ navigation }) => {
     })
     const handlePress = async () => {
         setIsLoading(true);
-        // console.log(postData);
         const res = await registerUser(postData)
         if (res.data) {
-
+            await storeToken(res.data.token)
+            dispatch(setAuthAsTrue())
         }
         if (res.error) {
-            Toast.show(
-                {
-                    type: 'warning',
-                    position: 'bottom',
-                    topOffset: 0,
-                    text1: "Warning",
-                    text2: "Verifiez tous les champs"
-                }
-            )
+
         }
         setTimeout(() => {
             setIsLoading(false);
