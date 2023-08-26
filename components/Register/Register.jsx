@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux'
 import { useRegisterUserMutation } from '../../src/services/userAuthApi'
 import { storeToken } from '../../src/services/AsyncStorageServices'
 import { setAuthAsTrue } from '../../src/services/AuthSateSlice'
+import { Toast } from 'react-native-toast-message/lib/src/Toast'
+import RNPickerSelect from "react-native-picker-select";
 
 const Register = ({ navigation }) => {
     const dispatch = useDispatch()
@@ -18,7 +20,8 @@ const Register = ({ navigation }) => {
         name: '',
         password: '',
         password2: '',
-        tc: true
+        tc: true,
+        type_de_compte: ''
     })
     const handlePress = async () => {
         setIsLoading(true);
@@ -28,7 +31,8 @@ const Register = ({ navigation }) => {
             dispatch(setAuthAsTrue())
         }
         if (res.error) {
-
+            console.log(res.error.data.errors)
+            // console.log(res.error);
         }
         setTimeout(() => {
             setIsLoading(false);
@@ -64,7 +68,19 @@ const Register = ({ navigation }) => {
                         color={COLORS.gray}
                         leading={<Ionicons name='person' size={20} color={COLORS.gray} />}
                     />
+                    <Text>Type de compte</Text>
+                    <View style={styles.picker}>
 
+                        <RNPickerSelect
+                            label='Selectionnez le type de compte'
+                            onValueChange={(value) => setPostData({ ...postData, type_de_compte: value })}
+                            items={[
+                                { label: "Particulier", value: "Particulier" },
+                                { label: "Livraison", value: "Livraison" },
+                                { label: "Transport", value: "Transport" },
+                            ]}
+                        />
+                    </View>
                     <TextInput
                         onChangeText={(target) => setPostData({ ...postData, password: target })}
                         style={styles.input}
@@ -178,6 +194,20 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: COLORS.primary,
         fontSize: 18
+    },
+    picker: {
+        height: 58,
+        borderStyle: 'solid',
+        borderColor: 'black',
+        borderWidth: .5,
+        marginTop: 10,
+        backgroundColor: COLORS.white,
+        borderRadius: 5,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+        paddingLeft: 25
     }
 })
 export default Register

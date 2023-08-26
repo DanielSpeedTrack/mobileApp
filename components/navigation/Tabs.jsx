@@ -8,14 +8,20 @@ import { COLORS } from "../../assets/constants/theme";
 import UserProfile from "./screens/UserProfile";
 import Management from "./screens/Management";
 
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import GpsManagement from "./screens/GpsManagement";
+
+const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 const Tabs = () => {
     return (
         <Tab.Navigator
+
             screenOptions={{
-                headerTitle: 'Z',
+                headerTitle: '',
                 tabBarStyle: {
-                    marginTop: '20',
+                    marginTop: 20,
                     alignItems: 'center',
                     justifyContent: 'center',
                     position: 'absolute',
@@ -32,6 +38,7 @@ const Tabs = () => {
                     paddingTop: 25,
                     ...styles.shadow// Add horizontal padding to the tab bar
                 },
+
                 headerShown: false,
 
             }}
@@ -114,6 +121,9 @@ const Tabs = () => {
                 }}
             />
 
+
+
+
         </Tab.Navigator>
     )
 }
@@ -121,6 +131,7 @@ const Tabs = () => {
 
 const styles = StyleSheet.create({
     shadow: {
+        // backgroundColor: 'wihte',
         shadowColor: "#7F5DF0",
         shadowOffset: {
             width: 0,

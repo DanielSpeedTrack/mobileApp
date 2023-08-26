@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { setAuthAsTrue } from "./src/services/AuthSateSlice";
+import Second from "./components/Home/Second";
+import GpsManagement from "./components/navigation/screens/GpsManagement";
 
 const screenOptions = {
   headerShown: false, // This will remove the header automatically for all screens
@@ -23,14 +25,14 @@ const MyApp = () => {
   const [isLogin, setIsLogin] = useState(false)
   const [isAuth, setIsAuth] = useState(false)
   const dispatch = useDispatch()
-  console.log("Login token", isLogin);
   useEffect(() => {
     const getInitialState = async () => {
       try {
         const storedState = await AsyncStorage.getItem('token');
         if (storedState != null) {
-          // const parsedState = JSON.parse(storedState);
-          dispatch(setAuthAsTrue());
+          const parsedState = JSON.parse(storedState);
+
+          dispatch(setAuthAsTrue(parsedState));
           setIsLogin(true) // Dispatch action to set the initial state
         }
         else {
@@ -46,7 +48,7 @@ const MyApp = () => {
 
   return (
     <>
-      {!loggedIn ?
+      {!loggedIn.state ?
         (
           <NavigationContainer >
             <Stack.Navigator screenOptions={screenOptions} initialRouteName="Home">
@@ -54,6 +56,12 @@ const MyApp = () => {
                 key={0}
                 name='Home'
                 component={Home}
+                options={{ headerTitle: '' }}
+              />
+              <Stack.Screen
+                name="Second"
+                key={"Second"}
+                component={Second}
                 options={{ headerTitle: '' }}
               />
               <Stack.Screen
@@ -76,8 +84,9 @@ const MyApp = () => {
               <Stack.Screen
                 name="Main"
                 component={Main}
-                options={{ headerTitle: '' }}
+                options={{ headerShown: false }}
               />
+
             </Stack.Navigator>
           </NavigationContainer>
         )}

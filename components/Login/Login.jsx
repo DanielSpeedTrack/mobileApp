@@ -43,7 +43,7 @@ const Login = ({ navigation }) => {
         if (res.data) {
             console.log(res.data);
             await storeToken(res.data.token)
-            dispatch(setAuthAsTrue())
+            dispatch(setAuthAsTrue(res.data.token))
 
 
         }
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
         width: "80%",
         borderRadius: 70,
         shadowColor: 'gray',
-        shadowOffset: 20,
+        // shadowOffset: 20,
         shadowOpacity: 20,
         elevation: 15,
         shadowRadius: 5

@@ -15,7 +15,7 @@ const Home = ({ navigation }) => {
                 <Image source={images.logo} style={{ width: 300, height: 300 }} />
             </View>
             <View style={styles.second}>
-                <Pressable style={styles.btnPressed} onPress={() => navigation.navigate('Login')}>
+                <Pressable style={styles.btnPressed} onPress={() => navigation.navigate('Second')}>
                     <Text style={styles.btnPressedTxt}> Commencer </Text>
                 </Pressable>
             </View>

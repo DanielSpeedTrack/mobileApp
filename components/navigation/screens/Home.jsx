@@ -8,6 +8,7 @@ import { getToken } from '../../../src/services/AsyncStorageServices';
 import SingleGps from '../components/SingleGps';
 import { Flex } from 'react-native-flex-layout';
 import { Ionicons } from '@expo/vector-icons';
+import { Divider } from '@react-native-material/core';
 
 
 const Home = () => {
@@ -69,14 +70,15 @@ const Home = () => {
 
 
     return (
-        <ScrollView>
+        <ScrollView style={{ marginTop: 50 }} >
 
             <View style={styles.header} >
                 <View style={styles.headerContent}>
-                    <Text style={styles.welcome}  >Bienvenu  </Text>
+                    <Text style={styles.welcome}  > <Ionicons name='home' size={70} /> Bienvenue  </Text>
                     <Text style={styles.welcomeMessage}> Profilez au maximum  😀 </Text>
                 </View>
             </View>
+            <Divider />
             <Flex wrap='wrap' direction='row' fill justify='between' style={{ gap: 10, padding: 20 }}>
                 <View style={{ ...styles.card, backgroundColor: COLORS.white }}>
 
@@ -104,6 +106,7 @@ const Home = () => {
                     <SingleGps key={index} name={item} />
                 ))}
             </View>
+            <View style={{ height: 150 }}></View>
         </ScrollView>
 
     )
@@ -145,8 +148,8 @@ const styles = StyleSheet.create({
         borderRadius: 6,
         shadowOpacity: 6,
         shadowOffset: 5,
-        shadowColor: COLORS.gray
-
+        shadowColor: COLORS.gray,
+        elevation: 5
     }
 
 })

@@ -1,4 +1,5 @@
 import { Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 const COLORS = {
   primary: "#1159AE",
   secondary: "#444262",
@@ -31,6 +32,21 @@ const SIZES = {
   window: Dimensions.get('window').height,
 };
 
+
+const FONT_SIZES = {
+  h1: StyleSheet.create({
+    h1: {
+      fontSize: 40,
+      fontWeight: "bold"
+    }
+  }),
+  h2: StyleSheet.create({
+    h2: {
+      fontSize: 20,
+      // fontWeight: "bold"
+    }
+  })
+}
 const SHADOWS = {
   small: {
     shadowColor: "#000",
@@ -54,4 +70,4 @@ const SHADOWS = {
   },
 };
 
-export { COLORS, FONT, SIZES, SHADOWS };
+export { COLORS, FONT, SIZES, SHADOWS, FONT_SIZES };
